@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>Meta Search Engine</title>
+</head>
+
+   <body>
+   <!-- search form 3 -->
+      <form id="search-form_3" action = "http://localhost:5000/result" method = "POST">
+<h1 style="color:black; font-size:100%;">
+    Meta Search Engine
+</h1>
+
+        <input type="text" class="search_3" name="Name"/>
+<input type="submit" class="submit_3" value="Search" />
+
+
+      </form>
+   <p>
+              Showing relevant results:
+          </p>
+
+
+     <table border = 1>
+         {% for key1, item1 in result.items() %}
+            <tr>
+               <th> {{ key1 }} </th>
+                {% for key2,nested_item in item1.items() %}
+               <td> <a href={{nested_item}} target="_blank">{{key2}}</a> </td>
+                {% endfor %}
+            </tr>
+         {% endfor %}
+      </table>
+   </body>
+</html>
+
+
